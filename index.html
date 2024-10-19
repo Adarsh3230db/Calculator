@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" id="display" name="display" >
+            <div>
+                <button onclick="clearDisplay()" class="others">AC</button>
+                <button onclick="clearOneChar()" class="others">DE</button>
+                <button onclick="display('%')" class="others">%</button>
+                <button onclick="display('/')" class="operations">/</button>
+            </div>
+            <div>
+                <button onclick="display('7')" class="numbers">7</button>
+                <button class="numbers" onclick="display(8)">8</button>
+                <button class="numbers" onclick="display(9)">9</button>
+                <button class="operations" onclick="display('*')">X</button>
+            </div>
+            <div>
+                <button class="numbers" onclick="display(4)">4</button>
+                <button class="numbers" onclick="display('5')">5</button>
+                <button class="numbers" onclick="display('6')">6</button>
+                <button class="operations" onclick="display('-')">-</button>
+            </div>
+            <div>
+                <button class="numbers" onclick="display('1')">1</button>
+                <button class="numbers" onclick="display('2')">2</button>
+                <button class="numbers" onclick="display('3')">3</button>
+                <button class="operations" onclick="display('+')">+</button>
+            </div>
+            <div>
+                <button onclick="display('00')" class="numbers">00</button>
+                <button class="numbers" onclick="display('0')">0</button>
+                <button class="numbers" onclick="display('.')">.</button>
+                <button onclick="result()" class="others">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        function display(num){
+            let display = document.getElementById('display')
+
+            display.value += num
+        }
+        function clearDisplay(){
+        let display = document.getElementById('display')
+        display.value = ''
+        }
+        function clearOneChar(){
+            let display = document.getElementById('display')
+            display.value = display.value.slice(0,-1)
+        }
+        function result(){
+            let display = document.getElementById('display')
+            // display.value = display.value.toNum()
+            display.value = eval(display.value)
+        }
+    </script>
+</body>
+</html>
